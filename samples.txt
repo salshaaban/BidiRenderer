@@ -1,0 +1,4 @@
+لَاْ حَوْلَ وَلَاْ قُوَّةَ إِلَّاْ بِاْللهِ العَلِيِّ العَظِيْم
+When the Arabic letter Lam (ل) is followed by the letter Alif (ا), FriBidi substitutes the two with the ligature Lam+Alif (لا) and a zero-width space is inserted.
+سبب ظهور المربعات في النص العربي هو: When the Arabic letter Lam (ل) is followed by the letter Alif (ا), FriBidi substitutes the two with the ligature Lam+Alif (لا) and a zero-width space is inserted.
+سبب ظهور المربعات في النص العربي: ‪When the Arabic letter Lam (‫ل‬) is followed by the letter Alif (‫ا‬), FriBidi substitutes the two with the ligature Lam+Alif (‫لا‬) and a zero-width space is inserted.‬

@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/files">
+        <file>fonts/DejaVuSans.ttf</file>
+        <file>samples.txt</file>
+    </qresource>
+</RCC>
