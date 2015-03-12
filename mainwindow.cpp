@@ -136,6 +136,8 @@ MainWindow::MainWindow(QWidget *parent) :
             this, SLOT(setMaxLineWidth(int)));
     connect(ui->fontSizeSB, SIGNAL(valueChanged(int)),
             this, SLOT(setFontSize(int)));
+    connect(ui->fontColorPickerLabel, SIGNAL(colorChanged(QColor)),
+            this, SLOT(render()));
     connect(ui->penWidthSB, SIGNAL(valueChanged(int)),
             this, SLOT(setPenWidth(int)));
 }
@@ -193,11 +195,13 @@ void MainWindow::render()
     mRawGlyphString = new GlyphString();
     mRawGlyphString->init(((quint32*) byteArray.constData()) + 1,
                           ui->textCombo->lineEdit()->text().size(),
-                          mFace, parType, ui->lineWidthSlider->value());
+                          mFace, ui->fontColorPickerLabel->color(),
+                          parType, ui->lineWidthSlider->value());
     mShapedGlyphString = new GlyphString();
     mShapedGlyphString->init(((quint32*) byteArray.constData()) + 1,
                              ui->textCombo->lineEdit()->text().size(),
-                             mFace, parType, ui->lineWidthSlider->value());
+                             mFace, ui->fontColorPickerLabel->color(),
+                             parType, ui->lineWidthSlider->value());
     mRawGlyphString->analyze(ui->resolveScriptsCB->isChecked(),
                              ui->breakRunsCB->isChecked());
     mShapedGlyphString->analyze(ui->resolveScriptsCB->isChecked(),

@@ -80,9 +80,9 @@
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>-290</y>
+          <y>-109</y>
           <width>332</width>
-          <height>1039</height>
+          <height>1062</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -156,6 +156,13 @@
               </layout>
              </widget>
             </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="fontSizeLabel">
+              <property name="text">
+               <string>Font size</string>
+              </property>
+             </widget>
+            </item>
             <item row="3" column="0" colspan="2">
              <widget class="QGroupBox" name="fontGB">
               <property name="title">
@@ -168,10 +175,10 @@
               </layout>
              </widget>
             </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="fontSizeLabel">
+            <item row="6" column="0">
+             <widget class="QLabel" name="penWidthLabel">
               <property name="text">
-               <string>Font size</string>
+               <string>Pen width</string>
               </property>
              </widget>
             </item>
@@ -191,14 +198,7 @@
               </property>
              </widget>
             </item>
-            <item row="5" column="0">
-             <widget class="QLabel" name="penWidthLabel">
-              <property name="text">
-               <string>Pen width</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="1">
+            <item row="6" column="1">
              <widget class="QSpinBox" name="penWidthSB">
               <property name="minimum">
                <number>10</number>
@@ -208,6 +208,20 @@
               </property>
               <property name="singleStep">
                <number>10</number>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QLabel" name="fontColorLabel">
+              <property name="text">
+               <string>Font color</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="ColorPicker" name="fontColorPickerLabel">
+              <property name="text">
+               <string/>
               </property>
              </widget>
             </item>

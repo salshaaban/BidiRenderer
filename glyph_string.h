@@ -25,6 +25,7 @@
 #pragma once
 
 #include <QtGui/QImage>
+#include <QtGui/QColor>
 #include <QtCore/QVector>
 
 #include <ft2build.h>
@@ -100,7 +101,7 @@ public:
     GlyphString();
     ~GlyphString();
     bool init(quint32 *codePoints, int size, FT_Face face,
-             FriBidiParType parType, int maxWidth);
+              QColor faceColor, FriBidiParType parType, int maxWidth);
     bool analyze(bool resolveScripts = true, bool breakOnLevelChange = false);
     bool shapeHarfBuzz();
     bool shapeFriBidi(bool removeInvisibleCharacters = true);
@@ -191,6 +192,7 @@ public:
 
 protected:
     FT_Face mFace;
+    QColor mFaceColor;
     QVector<LineInfo> mLineInfos;
     QVector<RunInfo> mRunInfos;
     int mSize;

@@ -241,7 +241,7 @@ GlyphString::~GlyphString()
 }
 
 bool GlyphString::init(quint32 *codePoints, int size, FT_Face face,
-                      FriBidiParType parType, int maxWidth)
+                       QColor faceColor, FriBidiParType parType, int maxWidth)
 {
     if (size <= 0) return false;
 
@@ -275,6 +275,7 @@ bool GlyphString::init(quint32 *codePoints, int size, FT_Face face,
     memcpy(mCodePoints, codePoints, size * sizeof(*codePoints));
     mSize = size;
     mFace = face;
+    mFaceColor = faceColor;
     mMaxWidth = maxWidth;
     mParType = parType;
 
@@ -619,8 +620,10 @@ bool GlyphString::loadGlyphImages(bool useGlyphIndices, bool keepXAdvance)
         for (int ii = 0; ii < bmp.width; ++ii)
         {
             for (int jj = 0; jj < bmp.rows; ++jj)
-                mImages[i].setPixel(ii, jj, qRgba(255, 0, 0,
-                                    bmp.buffer[jj * bmp.pitch + ii]));
+                mImages[i].setPixel(ii, jj, qRgba(mFaceColor.red(),
+                                                  mFaceColor.green(),
+                                                  mFaceColor.blue(),
+                                                  bmp.buffer[jj * bmp.pitch + ii]));
         }
 
     }
