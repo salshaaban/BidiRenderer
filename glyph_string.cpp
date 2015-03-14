@@ -23,6 +23,7 @@
  */
 
 #include <assert.h>
+#include <limits>
 
 #include "glyph_string.h"
 
@@ -543,11 +544,13 @@ bool GlyphString::layout()
                 mLineInfos.push_back(newLine(lineStart, lastSpace, lineNo++));
                 width = 0;
                 lineStart = lastSpace + 1;
+                i = lastSpace;
                 continue;
             } else {
                 mLineInfos.push_back(newLine(lineStart, i, lineNo++));
                 width = 0;
                 lineStart = i;
+                --i;
                 continue;
             }
         }
@@ -564,8 +567,8 @@ LineInfo GlyphString::newLine(int startOffset, int endOffset, int lineNo)
     lineInfo.endOffset = endOffset;
     reorderLine(startOffset, endOffset);
 
-    int left = 0;
-    int right = 0;
+    int left = std::numeric_limits<int>::max();
+    int right = std::numeric_limits<int>::min();
     int x = 0;
     for (int i = startOffset; i < endOffset; ++i) {
         int index = reorderedIndex(i);
@@ -580,8 +583,15 @@ LineInfo GlyphString::newLine(int startOffset, int endOffset, int lineNo)
         lineInfo.descent = qMin(lineInfo.descent, bottom);
     }
     right = qMax(right, x);
-    lineInfo.width = right - left;
-    lineInfo.left = left;
+
+    if (right > left) {
+        lineInfo.width = right - left;
+        lineInfo.left = left;
+    } else {
+        lineInfo.width = 0;
+        lineInfo.left = 0;
+    }
+
     lineInfo.height = lineInfo.ascent - lineInfo.descent;
     return lineInfo;
 }
