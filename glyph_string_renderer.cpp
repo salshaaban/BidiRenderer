@@ -76,6 +76,7 @@ void GlyphStringRenderer::layout()
 {
     int width = 0;
     int height = 0;
+    int lineHeight = 0;
     int x = 0;
     int y = 0;
 
@@ -87,6 +88,7 @@ void GlyphStringRenderer::layout()
 
     for (int i = 0; i < mGlyphString->lineInfos().size(); ++i) {
         width = qMax(width, mGlyphString->lineInfos()[i].width);
+        lineHeight = qMax(lineHeight, mGlyphString->lineInfos()[i].height);
         height += mGlyphString->lineInfos()[i].height;
     }
     width += 10 * mPenWidth;
@@ -177,7 +179,7 @@ void GlyphStringRenderer::layout()
         }
 
         y -= lineInfo.ascent;
-        y += lineInfo.height;
+        y += lineHeight;
     }
 
     mBoundingRect = QRectF(0, 0, width, y);
