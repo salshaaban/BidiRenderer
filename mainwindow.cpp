@@ -91,6 +91,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->graphicsView->setScene(mGraphicsScene);
 
     connect(ui->actionE_xit, SIGNAL(triggered()), this, SLOT(close()));
+    connect(ui->action_Panel, SIGNAL(toggled(bool)),
+            ui->dockWidget, SLOT(setVisible(bool)));
+    connect(ui->dockWidget, SIGNAL(visibilityChanged(bool)),
+            ui->action_Panel, SLOT(setChecked(bool)));
     connect(ui->textCombo->lineEdit(), SIGNAL(returnPressed()),
             ui->renderButton, SLOT(animateClick()));
     connect(ui->renderButton, SIGNAL(clicked()), this, SLOT(render()));

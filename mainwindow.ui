@@ -62,7 +62,14 @@
     </property>
     <addaction name="actionE_xit"/>
    </widget>
+   <widget class="QMenu" name="menu_View">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <addaction name="action_Panel"/>
+   </widget>
    <addaction name="menu_File"/>
+   <addaction name="menu_View"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QDockWidget" name="dockWidget">
@@ -80,7 +87,7 @@
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>-109</y>
+          <y>0</y>
           <width>332</width>
           <height>1062</height>
          </rect>
@@ -522,6 +529,17 @@ and HB_SCRIPT_INHERITED</string>
   <action name="actionE_xit">
    <property name="text">
     <string>E&amp;xit</string>
+   </property>
+  </action>
+  <action name="action_Panel">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Panel</string>
    </property>
   </action>
  </widget>
