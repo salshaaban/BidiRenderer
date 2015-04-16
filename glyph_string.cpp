@@ -535,7 +535,7 @@ bool GlyphString::layout()
         }
         width += mGeometries[i].xAdvance;
         if (mMaxWidth < width) {
-            if (lineStart == i - 1) {
+            if (lineStart == i) {
                 return false;
             }
             if (lastSpace > lineStart) {
