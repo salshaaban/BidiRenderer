@@ -580,7 +580,6 @@ LineInfo GlyphString::newLine(int startOffset, int endOffset, int lineNo)
         lineInfo.ascent = qMax(lineInfo.ascent, top);
         lineInfo.descent = qMin(lineInfo.descent, bottom);
     }
-    right = qMax(right, x);
 
     if (right > left) {
         lineInfo.width = right - left;
