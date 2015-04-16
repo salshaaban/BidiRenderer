@@ -471,10 +471,8 @@ bool GlyphString::shapeFriBidi(bool removeInvisibleCharacters)
     FriBidiJoiningType *joiningTypes = new FriBidiJoiningType[mSize];
     fribidi_get_joining_types(mCodePoints, mSize, joiningTypes);
     fribidi_join_arabic(mTypes, mSize, mLevels, joiningTypes);
-    fribidi_shape_arabic(FRIBIDI_FLAG_SHAPE_MIRRORING |
-                         FRIBIDI_FLAG_SHAPE_ARAB_PRES |
-                         FRIBIDI_FLAG_SHAPE_ARAB_LIGA,
-                         mLevels, mSize, joiningTypes, mCodePoints);
+    fribidi_shape(FRIBIDI_FLAGS_DEFAULT | FRIBIDI_FLAGS_ARABIC,
+                  mLevels, mSize, joiningTypes, mCodePoints);
     delete[] joiningTypes;
     loadGlyphImages();
 
